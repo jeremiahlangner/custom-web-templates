@@ -1,0 +1,23 @@
+{
+  "name": "custom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "open ./dist/index.html && npm run watch",
+    "build": "node-sass src/style.scss dist/style.css && cp src/index.html ./dist && esbuild ./src/**/*.ts ./src/*.ts --outdir=./dist --bundle --minify",
+    "watch": "node-sass src/style.scss dist/style.css && cp src/index.html ./dist && esbuild ./src/**/*.ts ./src/*.ts --outdir=./dist --watch --bundle --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "esbuild": "^0.15.10",
+    "eslint": "^8.24.0",
+    "node-sass": "^7.0.3",
+    "typescript": "^4.8.4"
+  }
+}

@@ -1,0 +1,5 @@
+fw-container {
+  visibility: hidden; }
+
+fw-container[visible] {
+  visibility: visible; }
