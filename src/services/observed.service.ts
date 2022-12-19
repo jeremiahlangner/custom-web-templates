@@ -1,21 +1,25 @@
-export class ProxyObj {
+export class Observed {
   _obj: any;
+  _getter: (key: string) => unknown;
+  _setter: (key: string, val: unknown, old: unknown) => void;
 
   constructor(getter: any, setter: any, obj) {
+    const self = this;
     const handler = {
       get(target, key) {
-        getter(target, key);
-        return target[key];
-      },
-      set(target, key, val) {
-        if (typeof val === "object") {
-          target[key] = new Proxy(val, this);
+        if (typeof target[key] === 'object' && target[key] !== null) {
+          return new Proxy(target[key], handler);
         } else {
-          setter(target, key, val);
-          target[key] = val;
-          return true;
+          self._getter(key);
+          return target[key];
         }
       },
+      set(target, key, val) {
+        if (target[key] === val) return;
+        self._setter(key, val, target[key]);
+        target[key] = val;
+        return;
+      }
     };
     this._obj = new Proxy(obj, handler);
     return this._obj;
