@@ -3,8 +3,8 @@ export class VCDC extends HTMLElement {
 
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
-    this._template = document.createElement("template");
+    this.attachShadow({ mode: 'open' });
+    this._template = document.createElement('template');
     this._template.innerHTML += `<slot></slot>`;
   }
 
