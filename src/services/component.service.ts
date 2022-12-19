@@ -1,5 +1,5 @@
-import { Shared } from "../providers/shared";
-import { Application } from "../providers/application";
+import { Shared } from "../providers/shared.provider";
+import { Application } from "../providers/application.provider";
 
 export class ComponentService {
   _application: Application;

@@ -1,0 +1,1 @@
+(()=>{var s=class{async getProvider(r){return await s._providers[r]}async getService(r){return await s._services[r]}},e=s;e._providers={Application:Promise.resolve(window.vcdcApp)},e._services={Component:Promise.resolve(window.vcdcApp.services.ComponentService),Observed:Promise.resolve(window.vcdcApp.services.Observed)};})();
