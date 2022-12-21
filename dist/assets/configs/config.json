@@ -1,0 +1,17 @@
+{
+  "views": {
+    "default": {
+      "layout": [
+        {
+          "type": "container",
+          "layout": [
+            {
+              "type": "row",
+              "value": "<div>Hello World</div>"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

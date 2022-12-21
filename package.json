@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "(go run server.go &) && (npm run watch &) && open http://localhost:8080",
-    "build": "node-sass src/style.scss dist/style.css && cp src/index.html ./dist && esbuild ./src/**/*.ts ./src/*.ts --outdir=./dist --bundle --minify",
+    "build": "cp -r assets ./dist && node-sass src/style.scss dist/style.css && cp src/index.html ./dist && esbuild ./src/**/*.ts ./src/*.ts --outdir=./dist --bundle --minify",
     "watch": "node-sass src/style.scss dist/style.css && cp src/index.html ./dist && esbuild ./src/**/*.ts ./src/*.ts --outdir=./dist --watch --bundle --minify"
   },
   "keywords": [],
