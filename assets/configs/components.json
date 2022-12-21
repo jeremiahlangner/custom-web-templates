@@ -1,0 +1,6 @@
+{
+  "app": {
+    "selector": "vcdc-app",
+    "url": "./components/vcdc/vcdc.js"
+  }
+}
