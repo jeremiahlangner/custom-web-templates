@@ -3,6 +3,11 @@ interface RequestOptions extends RequestInit {
 }
 
 export class ApiService {
+  constructor() {
+    // register service worker and execute requests in sw context?
+    // requires https; todo: gen certs
+  }
+
   async request(params: RequestOptions) {
     const request = new Request(params.url, params);
     return fetch(request).then((res) => {
