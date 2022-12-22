@@ -20,6 +20,7 @@ class App {
     }
   }
 
+  // workers should be registered by their respective services
   registerWorkers() {
     this.serviceWorker = new ServiceWorker('./workers/service.worker.js'); 
   }
