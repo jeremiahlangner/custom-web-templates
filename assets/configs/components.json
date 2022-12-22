@@ -2,5 +2,20 @@
   "app": {
     "selector": "vcdc-app",
     "url": "./components/vcdc/vcdc.js"
+  },
+  "container": {
+    "selector": "vcdc-container",
+    "url": "./components/vcdc/vcdc.js",
+    "class": "container"
+  },
+  "row": {
+    "selector": "vcdc-row",
+    "url": "./components/vcdc/vcdc.js",
+    "class": "row"
+  },
+  "column": {
+    "selector": "vcdc-col",
+    "url": "./components/vcdc/vcdc.js",
+    "class": "col"
   }
 }
