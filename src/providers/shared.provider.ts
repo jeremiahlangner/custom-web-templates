@@ -8,8 +8,13 @@ export abstract class Shared {
     return await Shared._providers[name];
   }
 
+  static load() {
+    this._services = (window as any).vcdc.services;
+  }
+
   static async getService(name: string) {
-    console.log(Shared._services);
+    Shared.load();
+    console.log(name, await Shared._services[name]);
     return await Shared._services[name];
   }
 
@@ -21,5 +26,7 @@ export abstract class Shared {
 
   static registerService(name: string, service: any) { // TODO: define limited shared service types for singletons
     Shared._services[name] = service;
+    if ((window as any).vcdc.services[name]) return;
+    (window as any).vcdc.services[name] = service;
   }
 }

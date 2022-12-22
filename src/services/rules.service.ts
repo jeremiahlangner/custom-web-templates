@@ -32,13 +32,13 @@ export class Rules {
   worker: Worker;
 
   constructor(
-    rulesUrl?: string
+    rulesUrl: string
   ) {
     // get rules; Should also be appended to app state / data
     Shared.getService('ApiService').then(apiService => {
       this.apiService = apiService;
       this.apiService.request({
-        url: './assets/rules.json',
+        url: rulesUrl,
         headers: {
           Accept: 'application/json',
           'Content-type': 'application/json'

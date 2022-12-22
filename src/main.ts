@@ -47,7 +47,7 @@ class App {
     Shared.registerServices({
       ApiService: new ApiService(),
       Storage: new Storage(),
-      Rules: new Rules(),
+      Rules: new Rules('./assets/configs/rules.json'),
       ComponentService: new ComponentService(),
     });
   }
