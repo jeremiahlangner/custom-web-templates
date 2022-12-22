@@ -1,1 +1,1 @@
-(()=>{var c=class{constructor(){}};})();
+(()=>{var e=class{constructor(){}testRule(t){}};})();

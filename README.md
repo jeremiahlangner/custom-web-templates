@@ -1,1 +1,1 @@
-echo # custom-web-templates
+VCDC (Working Name: Visually Configurable Design Components) is an HTML/JavaScript Framework built exclusively for front-end web components. It utilizes ES6 exclusive features such as Custom Web Elements to allow for template configuration in real time on both local and remote servers. The end goal is to enable non-programmers to design their own applications with an extremely flexible backend without the input of a programmer.
