@@ -1,7 +1,6 @@
 import { Observed } from './services/observed.service';
 
 class App {
-  serviceWorker: Worker;
   changeList = [];
 
   constructor() {
@@ -15,6 +14,11 @@ class App {
   }
 
   changes() {
+    // for each component renderer, the main data observer/service will need
+    // to maintain a registry of functions to execute when the Proxy recongnizes
+    // a change in the data; 
+    //
+    // proxy can cause execution on observation, or on change.
     for(const fn of changeList) {
       fn();
     }
