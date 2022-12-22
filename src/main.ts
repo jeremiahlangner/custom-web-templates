@@ -32,7 +32,13 @@ class App {
 
   async registerComponents() {
     const apiService = await Shared.getService('ApiService');
-    const components = await apiService.request({ url: './assets/configs/components.json' });
+    const components = await apiService.request({
+      url: './assets/configs/components.json',
+      headers: {
+        'Content-type': 'application/json',
+        'Accept': 'application/json'
+      }
+    });
     console.log(components);
   }
 
