@@ -3,6 +3,7 @@ import { Shared } from './providers/shared.provider';
 import { ApiService } from './services/api.service';
 import { Storage } from './services/storage.service';
 import { ComponentService } from './services/component.service';
+import { Rules } from './services/rules.service';
 
 class App {
   changeList = [];
@@ -46,6 +47,7 @@ class App {
     Shared.registerServices({
       ApiService: new ApiService(),
       Storage: new Storage(),
+      Rules: new Rules(),
       ComponentService: new ComponentService(),
     });
   }

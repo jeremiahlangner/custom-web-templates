@@ -1,0 +1,7 @@
+{
+  "testrule": {
+    "left": "$.test",
+    "operator": "=",
+    "right": 25
+  }
+}

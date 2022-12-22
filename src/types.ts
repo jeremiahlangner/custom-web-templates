@@ -4,7 +4,7 @@ interface VCDCConfig {
   type: VCDCComponentTypes,
   layout: any[], // TODO: can be any VCDCConfig or extended VCDCConfig
   value?: string,
-  
+
 }
 
 interface ContainerConfig extends VCDCConfig {
@@ -12,17 +12,20 @@ interface ContainerConfig extends VCDCConfig {
   template: string,
 }
 
-interface RowConfig extends ContainerConfig {
+interface RowConfig extends VCDCConfig {
   type: 'row',
+  templat: string
 }
 
-interface ColumnConfig extends ContainerConfig {
+interface ColumnConfig extends VCDCConfig {
   type: 'column',
+  template: string
 }
 
-export { 
-  VCDCComponentTypes, 
-  ContainerConfig, 
-  RowConfig, 
-  ColumnConfig 
+export {
+  VCDCConfig,
+  VCDCComponentTypes,
+  ContainerConfig,
+  RowConfig,
+  ColumnConfig
 };

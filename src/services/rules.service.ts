@@ -1,19 +1,23 @@
-const operators = {
-  "=": (a,b) => a === b,
-  ">": (a,b) => a > b,
-  "<": (a,b) => a < b,
-  ">=": (a,b) => a >= b,
-  "<=": (a,b) => a <=b,
-  "!=": (a,b) => a != b
-};
+import { Shared } from '../providers/shared.provider';
+import { ApiService } from './api.service';
 
 interface RuleDef {
-  type?: "all" | "any" | "none",
+  type?: 'all' | 'any' | 'none',
   left?: string | number /* insert value location in data here */,
-  operator: typeof operators,
+  operator?: typeof operators,
   right?: string | number /* same */,
   rules?: RuleDef[]
 }
+
+const operators = {
+  '=': (a, b) => a === b,
+  '>': (a, b) => a > b,
+  '<': (a, b) => a < b,
+  '>=': (a, b) => a >= b,
+  '<=': (a, b) => a <= b,
+  '!=': (a, b) => a != b
+};
+
 
 /* incorporate rules for the following:
  *
@@ -23,8 +27,32 @@ interface RuleDef {
  */
 
 export class Rules {
-  constructor() {}
+  apiService: ApiService;
+  rules: { [key: string]: RuleDef };
+  worker: Worker;
 
-  testRule(rule: string | any[]) {
-  }  
+  constructor(
+    rulesUrl?: string
+  ) {
+    // get rules; Should also be appended to app state / data
+    Shared.getService('ApiService').then(apiService => {
+      this.apiService = apiService;
+      this.apiService.request({
+        url: './assets/rules.json',
+        headers: {
+          Accept: 'application/json',
+          'Content-type': 'application/json'
+        }
+      }).then(rules => this.rules = rules);
+    });
+
+    //this.worker = new Worker()
+  }
+
+  testRule(rule: string | RuleDef) {
+    if (typeof rule === 'string') {
+      // lookup rule in rules from configuration
+    }
+
+  }
 }
