@@ -11,6 +11,7 @@ export class VCDC extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this._template = document.createElement('template');
     this._template.innerHTML += `<slot></slot>`;
+    this.render();
   }
   
   render() {
