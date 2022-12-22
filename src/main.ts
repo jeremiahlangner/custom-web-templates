@@ -1,4 +1,5 @@
 import { Observed } from './services/observed.service';
+import { Shared } from './providers/shared.provider';
 
 class App {
   changeList = [];
@@ -19,16 +20,22 @@ class App {
     // a change in the data; 
     //
     // proxy can cause execution on observation, or on change.
+    // components must individually check if any changes have occurred only on their immediate level.
     for(const fn of changeList) {
       fn();
     }
   }
 
   registerServices() {
-    window.vcdc.services = {
-      storage: new StorageService(),
+    const services = {
+      ApiService: new ApiService(),
+      StorageService: new StorageService(),
     };
+    for (const service in services) {
+      Shared.registerService(services[service]);
+    }
   }
 }
+
 const app = new App();
 

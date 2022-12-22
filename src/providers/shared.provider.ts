@@ -9,11 +9,16 @@ export abstract class Shared {
     Observed: Promise.resolve((window as any).vcdcApp.services.Observed),
   };
 
-  async getProvider(name: string) {
+  static async getProvider(name: string) {
     return await Shared._providers[name];
   }
 
-  async getService(name: string) {
+  static async getService(name: string) {
     return await Shared._services[name];
+  }
+
+  static registerService(service: any) { // TODO: define limited shared service types for singletons
+    const key = service.name;
+    Shared._services[key] = service;
   }
 }
