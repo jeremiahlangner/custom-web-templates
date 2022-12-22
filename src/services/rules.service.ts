@@ -25,6 +25,6 @@ interface RuleDef {
 export class Rules {
   constructor() {}
 
-  testRule(rule: string || any[]) {
+  testRule(rule: string | any[]) {
   }  
 }

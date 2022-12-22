@@ -1,10 +1,12 @@
+import { VCDCConfig } from '../types';
+
 export class VCDC extends HTMLElement {
   hash: string;
   selector: `${string}-${string}`;
   template: string;
   style: string;
-  config: any;
-  _template: any;
+  config: VCDCConfig;
+  _template: HTMLTemplateElement;
 
   constructor() {
     super();
