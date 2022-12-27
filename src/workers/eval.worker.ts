@@ -15,7 +15,7 @@ self.onMessage((e: MessageEvent<string>) => {
        * Local data should just reference a key in the full data context to
        * prevent reseting it.
        */
-      
+      return eval('() => { statement }(data)');
     }
   };
 });

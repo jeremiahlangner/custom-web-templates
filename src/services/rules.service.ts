@@ -1,7 +1,7 @@
 import { Shared } from '../providers/shared.provider';
 import { ApiService } from './api.service';
 
-interface RuleDef {
+export interface RuleDef {
   type?: 'all' | 'any' | 'none',
   left?: string | number /* insert value location in data here */,
   operator?: typeof operators,

@@ -1,1 +1,1 @@
-(()=>{var s={};self.onMessage(t=>{console.log(t);let n={setData:e=>{s!=e&&(s=e)},eval:e=>{}}});})();
+(()=>{var s=(t,a)=>()=>(a||t((a={exports:{}}).exports,a),a.exports);var n=s((exports,module)=>{var _data={};self.onMessage(e=>{console.log(e);let events={setData:t=>{_data!=t&&(_data=t)},eval:statement=>eval("() => { statement }(data)")}})});n();})();

@@ -1,10 +1,14 @@
+import { RuleDef } from './services/rules.service';
+
 type VCDCComponentTypes = 'container' | 'row' | 'column' | 'text' | 'html' | 'button' | 'input' | 'radio' | 'app';
 
 interface VCDCConfig {
-  type: VCDCComponentTypes,
-  layout: any[], // TODO: can be any VCDCConfig or extended VCDCConfig
+  type?: VCDCComponentTypes,
+  layout?: any[], // TODO: can be any VCDCConfig or extended VCDCConfig
   value?: string,
-
+  class?: string | string[],
+  style?: string,
+  if?: string | RuleDef,
 }
 
 interface ContainerConfig extends VCDCConfig {
