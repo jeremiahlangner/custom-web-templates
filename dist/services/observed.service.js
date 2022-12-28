@@ -1,1 +1,1 @@
-(()=>{var s=class{constructor(_,c,u){let o=this,e={get(t,n){return typeof t[n]=="object"&&t[n]!==null?new Proxy(t[n],e):(o._getter(n),t[n])},set(t,n,r){t[n]!==r&&(o._setter(n,r,t[n]),t[n]=r)}};return this._obj=new Proxy(u,e),this._obj}};})();
+(()=>{var s=class{constructor(_,c,u){let e=this,o={get(t,n){return typeof t[n]=="object"&&t[n]!==null?new Proxy(t[n],o):(e._getter(n),t[n])},set(t,n,r){return t[n]===r||(e._setter(n,r,t[n]),t[n]=r),!0}};return this._obj=new Proxy(u,o),this._obj}};})();
