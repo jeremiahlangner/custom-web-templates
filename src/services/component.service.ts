@@ -20,8 +20,15 @@ export class ComponentService {
     return s;
   }
 
-  delete(hash) { }
+  delete(hash) {
+    document.getElementById(hash).remove();
+  }
 
   // also identifiable as "move"
-  insert(hash) { }
+  insert(el: HTMLElement, hash: string, parentHash?: string, siblingHash?: string) {
+    el.id = hash;
+    if (!parentHash) document.body.appendChild(el);
+    if (!siblingHash) document.getElementById(parentHash)?.appendChild(el);
+    document.getElementById(siblingHash);
+  }
 }

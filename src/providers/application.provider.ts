@@ -7,6 +7,15 @@ export abstract class Application {
   }
   set app(app: any) {
     Application._app = app;
-    this.window["vcdcApp"] = app;
+    window["vcdcApp"] = app;
+  }
+
+  getByPath(obj: any, path: string) { // eslint-disable-line
+    const keys = path.split('.');
+    for (const key of keys) {
+      if (!obj[key]) return undefined;
+      obj = obj[key];
+    }
+    return obj;
   }
 }
