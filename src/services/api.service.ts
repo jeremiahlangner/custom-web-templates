@@ -9,8 +9,7 @@ export class ApiService {
   }
 
   async request(params: RequestOptions) {
-    const request = new Request(params.url, params);
-    return fetch(request).then((res) => {
+    return fetch(params.url, params).then((res) => {
       if (params.headers && params.headers['Accept'] === 'application/json')
         return res.json();
       return res;
