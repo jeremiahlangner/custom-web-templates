@@ -12,11 +12,11 @@ export class ComponentService {
   }
 
   hash() {
-    let s = '';
+    let s;
     while (this._hashes.find(h => h == s)) {
-      s = (Math.random() + 1).toString(36).substring(7);
+      s = Math.random().toString(16).substring(2, 15);
     }
-    this._hashes.push(s);
+    this._hashes.push(s); // change hashes to represent data paths for each component by hash
     return s;
   }
 
