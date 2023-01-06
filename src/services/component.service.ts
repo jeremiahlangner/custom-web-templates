@@ -20,8 +20,8 @@ export class ComponentService {
     return s;
   }
 
-  delete(hash) {
-    document.getElementById(hash).remove();
+  delete(hash: string) {
+    document.getElementById(hash)?.remove();
   }
 
   // also identifiable as "move"
