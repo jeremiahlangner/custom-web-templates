@@ -11,20 +11,19 @@ export class ComponentService {
     });
   }
 
-  hash() {
-    let s;
-    while (this._hashes.find(h => h == s)) {
-      s = Math.random().toString(16).substring(2, 15);
+  hash(): string {
+    let h: string = ''; // eslint-disable-line
+    while (this._hashes.find(k => k == h)) {
+      h = Math.random().toString(16).substring(2, 15);
     }
-    this._hashes.push(s); // change hashes to represent data paths for each component by hash
-    return s;
+    this._hashes.push(h);
+    return h;
   }
 
   delete(hash: string) {
     document.getElementById(hash)?.remove();
   }
 
-  // also identifiable as "move"
   insert(el: HTMLElement, hash: string, parentHash?: string, siblingHash?: string) {
     el.id = hash;
     if (!parentHash) document.body.appendChild(el);
