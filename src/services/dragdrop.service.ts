@@ -1,8 +1,12 @@
 export class DragAndDrop {
   el: HTMLElement;
-  dragExceptions: string[];
+  preview: HTMLElement;
+
   dragging: boolean;
   selected: boolean;
+  hovering: boolean;
+
+  dragExceptions: string[];
 
   constructor(
     el: HTMLElement,
@@ -13,14 +17,24 @@ export class DragAndDrop {
     this.registerEvents();
   }
 
-  registerEvents() {
-    const elementEvents = [
-    ];
-    const documentEvents = [
-    ];
+  registerSelectEvents(): void {
+  }
+  deRegisterSelectEvents(): void {
   }
 
-  handleDragEvents() {
-
+  registerSelectedEvents(): void {
   }
+  deRegisterSelectedEvents(): void {
+  }
+
+  registerResizeEvents(): void {
+  }
+  deRegisterResizeEvents(): void {
+  }
+
+  registerDragEvents(): void {
+  }
+  deRegisterDragEvents(): void {
+  }
+
 }
