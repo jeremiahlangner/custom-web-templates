@@ -128,7 +128,32 @@ export class DragAndDrop {
   }
 
   registerDragEvents(): void {
+    this.el.onmousedown = (e: MouseEvent) => {
+      e.stopPropagation();
+
+      document.body.style.cursor = 'move';
+      (this.el as any).initialDisplayStyle = this.el.style.display;
+      this.dragging = true;
+
+      const mousemove = this.mousemove.bind(this);
+      const mouseup = this.mouseup.bind(this);
+      this.dragEvents.push(['mousemove', mousemove]);
+      this.dragEvents.push(['mouseup', mouseup]);
+      document.addEventListener('mousemove', mousemove);
+      document.addEventListener('mouseup', mouseup);
+    };
   }
+
+  mousemove(e: MouseEvent) {
+    if (!this.dragging) return;
+
+    // TODO: show empty rows
+
+  }
+
+  mouseup(e: MouseEvent) {
+  }
+
   deRegisterDragEvents(): void {
   }
 
