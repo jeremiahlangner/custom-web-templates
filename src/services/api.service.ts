@@ -6,6 +6,7 @@ export class ApiService {
   constructor() {
     // register service worker and execute requests in sw context?
     // requires https; todo: gen certs
+    // is "fetch" the best choice?
   }
 
   async request(params: RequestOptions) {

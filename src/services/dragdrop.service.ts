@@ -1,20 +1,26 @@
+import { ComponentService } from './component.service';
+
 export class DragAndDrop {
+  componentService: ComponentService;
   el: HTMLElement;
-  preview: HTMLElement;
 
   dragging: boolean;
   selected: boolean;
-  hovering: boolean;
+
+  selectEvents: [keyof DocumentEventMap, EventListener][] = [];
+  dragEvents: [keyof DocumentEventMap, EventListener][] = [];
+  resizeEvents: [keyof DocumentEventMap, EventListener][] = [];
 
   dragExceptions: string[];
+  permissions: boolean;
 
   constructor(
     el: HTMLElement,
+    config: any,
     dragExceptions: string[]
   ) {
     this.el = el;
     this.dragExceptions = dragExceptions;
-    this.registerEvents();
   }
 
   registerSelectEvents(): void {
