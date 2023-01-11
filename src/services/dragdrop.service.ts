@@ -170,9 +170,28 @@ export class DragAndDrop {
   }
 
   mouseup(e: MouseEvent) {
+    // TODO: hide empty row/column elements
+
+    this.dragging = false;
+    document.body.style.cursor = 'initial';
+
+    // TODO: Update layout config.
+
+    for (const e of this.dragEvents)
+      document.removeEventListener(e[0], e[1]);
   }
 
   deRegisterDragEvents(): void {
+    this.dragging = false;
+    this.el.onmousedown = null;
+    for (const e of this.dragEvents)
+      document.removeEventListener(e[0], e[1]);
   }
 
+  destroy() {
+    this.deRegisterDragEvents();
+    this.deRegisterResizeEvents();
+    this.deRegisterSelectedEvents();
+    this.deRegisterSelectEvents();
+  }
 }
