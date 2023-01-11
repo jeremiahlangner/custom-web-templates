@@ -3,6 +3,8 @@ import { Shared } from '../providers/shared.provider';
 
 export class DragAndDrop {
   componentService: ComponentService;
+  selector: string;
+
   el: HTMLElement;
   parentElement: HTMLElement | null;
   initialIndex: number;
@@ -149,6 +151,22 @@ export class DragAndDrop {
 
     // TODO: show empty rows
 
+    this.el.style.display = 'none';
+    const droppable = document.elementFromPoint(e.clientX, e.clientY)?.closest(this.selector);
+    this.el.style.display = 'initial';
+    if (!droppable || droppable.id == this.el.id) return;
+
+    const dropParentEl = droppable.parentElement;
+    if (!dropParentEl) return;
+
+    try {
+      if (e.clientX < dropParentEl.getBoundingClientRect().left + (dropParentEl.offsetWidth / 2) ||
+        e.clientY < dropParentEl.getBoundingClientRect().top - (dropParentEl.offsetHeight / 2)) {
+        dropParentEl.insertBefore(this.el, droppable);
+      } else {
+        dropParentEl.insertBefore(this.el, droppable.nextSibling);
+      }
+    } catch { } // eslint-disable-line
   }
 
   mouseup(e: MouseEvent) {
