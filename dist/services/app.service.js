@@ -1,1 +1,1 @@
-(()=>{var a=class{constructor(){}};})();
+(()=>{var t=class{constructor(){}};})();

@@ -1,22 +1,16 @@
 import { Shared } from '../providers/shared.provider';
-import { Application } from '../providers/application.provider';
 
 export class ComponentService {
-  _application: Application;
-  _hashes: string[] = [];
+  _hashPaths: { [key: string]: string } = {};
 
   constructor() {
-    Shared.getProvider('Application').then((app) => {
-      this._application = app;
-    });
   }
 
   hash(): string {
     let h: string = ''; // eslint-disable-line
-    while (this._hashes.find(k => k == h)) {
+    while (this._hashPaths[h])
       h = Math.random().toString(16).substring(2, 15);
-    }
-    this._hashes.push(h);
+    this._hashPaths[h] = '';
     return h;
   }
 
